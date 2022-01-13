@@ -142,21 +142,21 @@ function apiFacade() {
     }
   }
 
-  const tokenValid = (setLoggedIn) => {
-    const token = getToken();
-    if (token != null) {
-      const payloadBase64 = getToken().split(".")[1];
-      const decodedClaims = JSON.parse(window.atob(payloadBase64));
-      let dateAsInt = new Date().getTime() / 1000
+  // const tokenValid = (setLoggedIn) => {
+  //   const token = getToken();
+  //   if (token != null) {
+  //     const payloadBase64 = getToken().split(".")[1];
+  //     const decodedClaims = JSON.parse(window.atob(payloadBase64));
+  //     let dateAsInt = new Date().getTime() / 1000
 
-      let dateAsIntFixed = dateAsInt.toFixed(0)
+  //     let dateAsIntFixed = dateAsInt.toFixed(0)
 
-      if (dateAsIntFixed - decodedClaims.iat > 1800) {
-        setLoggedIn(false)
-      }
+  //     if (dateAsIntFixed - decodedClaims.iat > 1800) {
+  //       setLoggedIn(false)
+  //     }
 
-    }
-  };
+  //   }
+  // };
 
   return {
     handleHttpErrors,
@@ -176,7 +176,7 @@ function apiFacade() {
     userAccess,
     superUserAccess,
     myFetchErrors,
-    tokenValid,
+    // tokenValid,
   };
 }
 const facade = apiFacade();
