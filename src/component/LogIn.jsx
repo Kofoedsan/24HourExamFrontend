@@ -6,9 +6,7 @@ import Home from "./Home";
 export function LoginUI({ loggedIn, setLoggedIn, facade }) {
   const login = (user, pass) => {
     let error = "";
-    facade
-      .login(user, pass)
-      .catch((error = "User name or password does not match"))
+    facade.login(user, pass)
       .then((res) => setLoggedIn(true));
     return error;
   };
