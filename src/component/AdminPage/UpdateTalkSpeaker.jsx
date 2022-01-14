@@ -82,7 +82,7 @@ const GetAllSpeakers = () => {
                         <tr key={counter++}>
                              <td>
                                 <button onClick={() => GetTalkBySpeakerId(item.dto_id)}>
-                                    Update talk </button>
+                                    Chooce speaker </button>
                             </td>
                             <td>
                                 <button onClick={() => viewProps(item.dto_id)}>

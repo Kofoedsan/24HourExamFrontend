@@ -20,6 +20,7 @@ import UpdateTalkSpeaker from "./component/AdminPage/UpdateTalkSpeaker";
 import DeleteTalk from "./component/AdminPage/DeleteTalk";
 import UpdateConferenceViewer from "./component/AdminPage/UpdateConferenceViewer";
 import UpdatedSpeakerViewer from "./component/AdminPage/UpdatedSpeakerViewer";
+import UpdateTalkInfoViewer from "./component/AdminPage/UpdateTalkInfoViewer";
 
 import {
   BrowserRouter as Router,
@@ -109,6 +110,11 @@ export default function NavBar() {
               <NavLink to="/UpdatedSpeakerViewer">Edit Speakers</NavLink>
             </li>
           )}
+           {facade.hasUserAccess("admin", loggedIn) && (
+            <li>
+              <NavLink to="/UpdateTalkInfoViewer">Edit Talkers</NavLink>
+            </li>
+          )}
           <li>
             <h2 className="customhead">Welcome to Dat3 Exam</h2>
           </li>
@@ -162,16 +168,24 @@ export default function NavBar() {
             />
 
             <Route path="/getAllConferences" element={<GetAllConferences />} />
+
             <Route path="/getSpeakerById" element={<GetAllSpeakers />} />
 
             <Route path="/createnewconference" element={<CreateNewConference />} />
 
             <Route path="/createnewtalk" element={<CreateNewTalk />} />
+
             <Route path="/createnewspeaker" element={<CreateNewSpeaker />} />
+
             <Route path="/UpdateTalkSpeaker" element={<UpdateTalkSpeaker />} />
+
             <Route path="/getalltalks" element={<DeleteTalk />} />
+
             <Route path="/UpdateConferenceViewer" element={<UpdateConferenceViewer />} />
+
             <Route path="/UpdatedSpeakerViewer" element={<UpdatedSpeakerViewer />} />
+
+            <Route path="/UpdateTalkInfoViewer" element={<UpdateTalkInfoViewer />} />
 
           </Routes>
         </div>
