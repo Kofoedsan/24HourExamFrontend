@@ -41,6 +41,7 @@ const UpdatedSpeakerViewer = () => {
     return (
         <div>
             {editSpeaker === true && <UpdatedSpeakerEditor editId={editId} seteditSpeaker={seteditSpeaker} speaker={speaker} />}
+            <h1>Here you can view & edit speakers</h1>
             <Table bordered responsive variant="dark">
             <thead>
                     <tr>

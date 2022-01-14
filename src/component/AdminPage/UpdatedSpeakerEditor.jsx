@@ -9,7 +9,7 @@ const UpdatedSpeakerEditor = ({ editId, seteditSpeaker, speaker }) => {
 
     const [newSpeaker, setnewSpeaker] = useState({});
 
-    const confedit = speaker.find((speaker)=>speaker.dto_id === editId)
+    const confedit = speaker.find((speaker) => speaker.dto_id === editId)
 
     Modal.setAppElement('#root');
 
@@ -25,7 +25,7 @@ const UpdatedSpeakerEditor = ({ editId, seteditSpeaker, speaker }) => {
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
+            transform: 'translate(-50%, -30%)',
         },
     };
 
@@ -44,7 +44,7 @@ const UpdatedSpeakerEditor = ({ editId, seteditSpeaker, speaker }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const post = facade.makeOptions("PUT", true, newSpeaker);
-        const res = await fetch(url + "/api/admin/updateConference/" + editId, post);
+        const res = await fetch(url + "/api/admin/updateSpeaker/" + editId, post);
         facade.myFetchErrors(res, setRes)
     };
 
@@ -57,7 +57,40 @@ const UpdatedSpeakerEditor = ({ editId, seteditSpeaker, speaker }) => {
                 contentLabel="Edit owner"
             >
                 <div>Edit speaker with the id: {editId}</div>
-
+                <label className="formLabel" for="dto_gender">
+                    Male
+                </label>
+                <input
+                    type="radio"
+                    required
+                    onChange={handleChange}
+                    value="Male"
+                    name="gender"
+                    id="dto_gender"
+                />
+                <label className="formLabel" for="dto_gender">
+                    Female  
+                </label>
+                <input
+                    type="radio"
+                    required
+                    onChange={handleChange}
+                    value="Female"
+                    name="gender"
+                    id="dto_gender"
+                />
+                <label className="formLabel" for="dto_gender">
+                    Other
+                </label>
+                <input
+                    type="radio"
+                    required
+                    onChange={handleChange}
+                    value="Other"
+                    name="gender"
+                    id="dto_gender"
+                />
+                {<br></br>}
                 <input
                     type="text"
                     required
@@ -77,16 +110,7 @@ const UpdatedSpeakerEditor = ({ editId, seteditSpeaker, speaker }) => {
                     defaultValue={confedit.dto_proffession}
                     id="dto_proffession"
                 />
-                {<br></br>}
-                <input
-                    type="text"
-                    required
-                    onChange={handleChange}
-                    className="input1"
-                    placeholder="Date"
-                    defaultValue={confedit.dto_gender}
-                    id="dto_gender"
-                />
+
                 {<br></br>}
                 <button onClick={handleSubmit}>Submit</button>
                 {<br></br>}

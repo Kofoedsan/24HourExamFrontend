@@ -29,6 +29,7 @@ const UpdateTalk = ({ editId, setupdateSpeak }) => {
         const op = facade.makeOptions("GET", true,);
         const res = await fetch(url + "/api/user/GetAllSpeakers", op);
         const data = await res.json();
+        data.unshift(0)
         setSpeaker(...[data, speaker]);
     };
 

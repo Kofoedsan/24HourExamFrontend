@@ -42,6 +42,7 @@ const GetAllConferences = () => {
     return (
         <div>
             {editConf === true && <UpdateConferenceEditor editId={editId} seteditConf={seteditConf} Conferences={Conferences} />}
+            <h1>Here you can view & edit conferences</h1>
             <Table bordered responsive variant="dark">
                 <thead>
                     <tr>

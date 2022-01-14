@@ -30,9 +30,17 @@ const AddConferenceToTalk = ({ editId, setaddconference }) => {
         const op = facade.makeOptions("GET", true,);
         const res = await fetch(url + "/api/user/getAllConferences", op);
         const data = await res.json();
+        data.unshift(0)
         setconference(...[data, conference]);
     };
 
+    let conferenceList = conference.length > 0
+    && conference.map((item, i) => {
+        return (
+            <option defaultValue={conference} 
+                key={i} value={item.dto_id}> Location: {item.dto_location} Capacity: {item.dto_capacity} Date: {item.dto_date} Time: {item.dto_time}</option>
+        )
+    });
 
     const customStyles = {
         content: {
@@ -59,19 +67,11 @@ const AddConferenceToTalk = ({ editId, setaddconference }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // console.log(speakerId);
         const post = facade.makeOptions("PUT", true, speakerId);
         const res = await fetch(url + "/api/admin/addConferenceToTalk/" + editId, post);
         facade.myFetchErrors(res, setRes)
     };
-
-    let conferenceList = conference.length > 0
-        && conference.map((item, i) => {
-            return (
-                <option defaultValue={conference} 
-                    key={i} value={item.dto_id}>Location {item.dto_location} Capacity {item.dto_capacity} Date {item.dto_date} Time {item.dto_time}</option>
-            )
-        });
-
 
     return (
         <div>

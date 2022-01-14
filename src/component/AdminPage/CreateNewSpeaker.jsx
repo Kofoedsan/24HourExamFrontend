@@ -32,8 +32,42 @@ const CreateNewSpeaker = () => {
     return (
         <Container className="LoginBackground">
             <div style={{ marginTop: 100 }}>
-                <h3>Enter talk info</h3>
+                <h3>Enter speaker info</h3>
                 <form onSubmit={handleSubmit}>
+                    <label className="formLabel" for="dto_gender">
+                        Male
+                    </label>
+                    <input
+                        type="radio"
+                        required
+                        onChange={handleChange}
+                        value="Male"
+                        name="gender"
+                        id="dto_gender"
+                    />
+                    <label className="formLabel" for="dto_gender">
+                        Female
+                    </label>
+                    <input
+                        type="radio"
+                        required
+                        onChange={handleChange}
+                        value="Female"
+                        name="gender"
+                        id="dto_gender"
+                    />
+                    <label className="formLabel" for="dto_gender">
+                        Other
+                    </label>
+                    <input
+                        type="radio"
+                        required
+                        onChange={handleChange}
+                        value="Other"
+                        name="gender"
+                        id="dto_gender"
+                    />
+                    {<br></br>}
                     {<br></br>}
                     <input
                         type="text"
@@ -52,16 +86,7 @@ const CreateNewSpeaker = () => {
                         placeholder="Proffession"
                         id="dto_proffession"
                     />
-                    {<br></br>}
 
-                    <input
-                        type="text"
-                        required
-                        onChange={handleChange}
-                        className="input1"
-                        placeholder="Gender"
-                        id="dto_gender"
-                    />
                     {<br></br>}
                     <button
                         required

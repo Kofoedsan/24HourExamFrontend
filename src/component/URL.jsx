@@ -1,3 +1,3 @@
-const url = "http://localhost:8080/24HourExamBackend_war_exploded";
+const url = "https://kofoednet.systems/24HourExamBackend";
 
 export default url;

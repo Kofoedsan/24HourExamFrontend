@@ -10,6 +10,7 @@ const UserData = ({ setLoggedIn }) => {
     dto_userName: "",
     dto_userPass: "",
     dto_name: "",
+    dto_email: "",
     dto_phone: "",
   });
 
@@ -25,16 +26,16 @@ const UserData = ({ setLoggedIn }) => {
     if (userdata.dto_userPass != userdata.repeatPW) {
       setRes("Passwords does not match");
     } else if (userdata.dto_phone.length != 8) {
-      setRes("Invalid phone number");
+      setRes("Invalid phone number. Must be 8 digits");
     } else {
       const op = facade.makeOptions("POST", false, userdata);
-      await fetch(url + "/api/info", op)
+      await fetch(url + "/api/user", op)
         .then(facade.handleHttpErrors)
         .then(setRes(loading))
         .then(await delay(5000))
         .then(await facade.login(userdata.dto_userName, userdata.dto_userPass))
         .then(setLoggedIn(true));
-      // navigate("/home");
+      navigate("/");
     }
   };
 
@@ -76,6 +77,15 @@ const UserData = ({ setLoggedIn }) => {
             className="input1"
             placeholder="Phone"
             id="dto_phone"
+          />
+          {<br></br>}
+          <input
+            type="text"
+            required
+            onChange={handleChange}
+            className="input1"
+            placeholder="Email"
+            id="dto_email"
           />
           {<br></br>}
           <input

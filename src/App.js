@@ -33,7 +33,7 @@ export default function NavBar() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    facade.tokenCheck(setLoggedIn)
+    facade.tokenValid(setLoggedIn)
   }, []);
 
 
