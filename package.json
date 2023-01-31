@@ -1,6 +1,6 @@
 {
-  "homepage": "https://kofoednet.systems/",
-  "name": "24HExam",
+  "homepage": "/24H/",
+  "name": "24Exam",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -18,6 +18,8 @@ const UserData = ({ setLoggedIn }) => {
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
+
+  let respond = "";
   const [res, setRes] = useState("");
   let navigate = useNavigate();
 
@@ -30,14 +32,20 @@ const UserData = ({ setLoggedIn }) => {
     } else {
       const op = facade.makeOptions("POST", false, userdata);
       await fetch(url + "/api/user", op)
-        .then(facade.handleHttpErrors)
-        .then(setRes(loading))
-        .then(await delay(5000))
-        .then(await facade.login(userdata.dto_userName, userdata.dto_userPass))
-        .then(setLoggedIn(true));
-      navigate("/");
-    }
+      .then(async (response) => {
+        if(response.status===200) {
+          setRes(loading);
+          await delay(5000);
+          await facade.login(userdata.dto_userName, userdata.dto_userPass);
+          setLoggedIn(true);
+          navigate("/24H/");
+        } else {
+          respond = await response.json();
+          setRes(respond.message);
+
+        }})
   };
+}
 
   const handleChange = (event) => {
     const target = event.target;

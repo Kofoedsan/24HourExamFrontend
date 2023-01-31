@@ -1,3 +1,3 @@
-const url = "https://kofoednet.systems/24HourExamBackend";
+const url = "https://nickhansen.me/24Backend";
 
 export default url;

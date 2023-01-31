@@ -63,8 +63,12 @@ function LogIn({ login }) {
                 </button>
               </form>
               <label id="jsonResponse">{msg}</label>
+              <p>Admin login: <br></br> Username: admin <br></br> Pass: test </p> 
+              <p>Or create a new user </p> 
+
             </div>
           </Container>
+        
     </div>
   );
 }

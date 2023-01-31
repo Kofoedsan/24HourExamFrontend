@@ -16,7 +16,7 @@ function DeleteUser({ setLoggedIn }) {
         alert("The user with username " + userToDelete + " has been deleted")
       )
       .then(setLoggedIn(false));
-    navigate("/")
+    navigate("/24H/")
   }
 
   const msg = "DoubleClik to delete user";

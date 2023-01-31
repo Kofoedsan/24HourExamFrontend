@@ -43,76 +43,76 @@ export default function NavBar() {
       <div className="bagGrund">
         <ul className="header">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/24H/">Home</NavLink>
           </li>
           {facade.loginCheck(loggedIn) && (
             <li>
-              <NavLink to="/Login">Sign-in</NavLink>
+              <NavLink to="/24H/Login">Sign-in</NavLink>
             </li>
           )}
           {facade.loginCheck(loggedIn) && (
             <li>
-              <NavLink to="/signup">Sign-up</NavLink>
+              <NavLink to="/24H/signup">Sign-up</NavLink>
             </li>
           )}
           {facade.loginCheck(!loggedIn) && (
             <li>
-              <NavLink to="/logout">Logout</NavLink>
+              <NavLink to="/24H/logout">Logout</NavLink>
             </li>
           )}
           {facade.loginCheck(!loggedIn) && (
             <li>
-              <NavLink to="/deleteUser">Delete user</NavLink>
+              <NavLink to="/24H/deleteUser">Delete user</NavLink>
             </li>
           )}
           {facade.hasUserAccess("user", loggedIn) && (
             <li>
-              <NavLink to="/getAllConferences">View all Conferences</NavLink>
+              <NavLink to="/24H/getAllConferences">View all Conferences</NavLink>
             </li>
           )}
           {facade.hasUserAccess("user", loggedIn) && (
             <li>
-              <NavLink to="/getSpeakerById">View talks by speaker</NavLink>
+              <NavLink to="/24H/getSpeakerById">View talks by speaker</NavLink>
             </li>
           )}
            {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/createnewconference">Create New Conference</NavLink>
+              <NavLink to="/24H/createnewconference">Create New Conference</NavLink>
             </li>
           )}
           {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/createnewspeaker">Create New Speaker</NavLink>
+              <NavLink to="/24H/createnewspeaker">Create New Speaker</NavLink>
             </li>
           )}
           {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/createnewtalk">Create New Talk</NavLink>
+              <NavLink to="/24H/createnewtalk">Create New Talk</NavLink>
             </li>
           )} 
            {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/UpdateTalkSpeaker">Update Talk</NavLink>
+              <NavLink to="/24H/UpdateTalkSpeaker">Update Talk</NavLink>
             </li>
           )}
            {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/getalltalks">Delete talk</NavLink>
+              <NavLink to="/24H/getalltalks">Delete talk</NavLink>
             </li>
           )}
             {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/UpdateConferenceViewer">Edit Conference</NavLink>
+              <NavLink to="/24H/UpdateConferenceViewer">Edit Conference</NavLink>
             </li>
           )}
           {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/UpdatedSpeakerViewer">Edit Speakers</NavLink>
+              <NavLink to="/24H/UpdatedSpeakerViewer">Edit Speakers</NavLink>
             </li>
           )}
            {facade.hasUserAccess("admin", loggedIn) && (
             <li>
-              <NavLink to="/UpdateTalkInfoViewer">Edit Talkers</NavLink>
+              <NavLink to="/24H/UpdateTalkInfoViewer">Edit Talkers</NavLink>
             </li>
           )}
           <li>
@@ -123,13 +123,13 @@ export default function NavBar() {
         <div className="content">
           <Routes>
 
-            <Route path="/" element={<Home setLoggedIn={setLoggedIn} />} />
-            <Route path="/Unauthorized" element={<Unauthorized setLoggedIn={setLoggedIn} />} />
+            <Route path="/24H/" element={<Home setLoggedIn={setLoggedIn} />} />
+            <Route path="/24H/Unauthorized" element={<Unauthorized setLoggedIn={setLoggedIn} />} />
             <Route path="*" element={<NotFound />} />
 
             <Route
               className="LoginBackground"
-              path="/login"
+              path="/24H/login"
               element={
                 <LoginUI
                   loggedIn={loggedIn}
@@ -141,12 +141,12 @@ export default function NavBar() {
 
             <Route
               className="LoginBackground"
-              path="/logout"
+              path="/24H/logout"
               element={<Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
             />
 
             <Route
-              path="/signup"
+              path="/24H/signup"
               element={
                 <Signup
                   facade={facade}
@@ -157,7 +157,7 @@ export default function NavBar() {
             />
 
             <Route
-              path="/deleteUser"
+              path="/24H/deleteUser"
               element={
                 <DeleteUser
                   facade={facade}
@@ -167,25 +167,25 @@ export default function NavBar() {
               }
             />
 
-            <Route path="/getAllConferences" element={<GetAllConferences />} />
+            <Route path="/24H/getAllConferences" element={<GetAllConferences />} />
 
-            <Route path="/getSpeakerById" element={<GetAllSpeakers />} />
+            <Route path="/24H/getSpeakerById" element={<GetAllSpeakers />} />
 
-            <Route path="/createnewconference" element={<CreateNewConference />} />
+            <Route path="/24H/createnewconference" element={<CreateNewConference />} />
 
-            <Route path="/createnewtalk" element={<CreateNewTalk />} />
+            <Route path="/24H/createnewtalk" element={<CreateNewTalk />} />
 
-            <Route path="/createnewspeaker" element={<CreateNewSpeaker />} />
+            <Route path="/24H/createnewspeaker" element={<CreateNewSpeaker />} />
 
-            <Route path="/UpdateTalkSpeaker" element={<UpdateTalkSpeaker />} />
+            <Route path="/24H/UpdateTalkSpeaker" element={<UpdateTalkSpeaker />} />
 
-            <Route path="/getalltalks" element={<DeleteTalk />} />
+            <Route path="/24H/getalltalks" element={<DeleteTalk />} />
 
-            <Route path="/UpdateConferenceViewer" element={<UpdateConferenceViewer />} />
+            <Route path="/24H/UpdateConferenceViewer" element={<UpdateConferenceViewer />} />
 
-            <Route path="/UpdatedSpeakerViewer" element={<UpdatedSpeakerViewer />} />
+            <Route path="/24H/UpdatedSpeakerViewer" element={<UpdatedSpeakerViewer />} />
 
-            <Route path="/UpdateTalkInfoViewer" element={<UpdateTalkInfoViewer />} />
+            <Route path="/24H/UpdateTalkInfoViewer" element={<UpdateTalkInfoViewer />} />
 
           </Routes>
         </div>
